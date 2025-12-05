@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="body">
-    <div id="scoreBox">Score: 0</div>  
-        <div id="board"></div>           
+<div class="body">
+    <div id="scoreBox">Score: 0</div>
+    <div id="board"></div>
+    <!-- Add this game over popup: -->
+    <div id="gameOver">
+        <h2>Game Over!</h2>
+        <p>Your Score: <span id="finalScore">0</span></p>
+        <button onclick="restartGame()">Play Again</button>
+    </div>
 </div>
-
-<div class="watermark">© Prachut Karki</div>
 
 </body>
 <script src="js/script.js"></script>

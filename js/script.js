@@ -2,6 +2,8 @@
 let inputDir = {x: 0, y: 0}; 
 const board = document.getElementById('board');
 const scoreBox = document.getElementById('scoreBox');
+const gameOverDiv = document.getElementById('gameOver');
+const finalScoreSpan = document.getElementById('finalScore');
 let speed = 7;
 let score = 0;
 let lastPaintTime = 0;
@@ -38,18 +40,16 @@ function isCollide(snake) {
     return false;
 }
 
-function gameEngine(){
-    //  Updating the snake array and Food
+function gameEngine(){  // ADD THIS LINE - you were missing it!
+    // collision check
     if(isCollide(snakeArr)){
-        inputDir =  {x: 0, y: 0}; 
-        alert("Game Over. Press any key to play again!");
-        snakeArr = [{x: 13, y: 15}];
-        score = 0; 
-        scoreBox.innerHTML = "Score: 0";
-
+        inputDir = {x: 0, y: 0}; 
+        finalScoreSpan.textContent = score;
+        gameOverDiv.style.display = 'block';
+        return;
     }
-    // food eaten case..
 
+    // food eaten case
     if(snakeArr[0].y === food.y && snakeArr[0].x ===food.x){
         score += 1;
         scoreBox.innerHTML = "Score: " + score;
@@ -88,9 +88,7 @@ function gameEngine(){
     foodElement.style.gridColumnStart = food.x;
     foodElement.classList.add('food')
     board.appendChild(foodElement);
-
-
-}
+}  // ADD THIS CLOSING BRACE
 
 
 window.requestAnimationFrame(main);
@@ -125,3 +123,12 @@ window.addEventListener('keydown', e =>{
     }
 
 });
+
+function restartGame() {
+    snakeArr = [{x: 13, y: 15}];
+    inputDir = {x: 0, y: 0};
+    score = 0;
+    scoreBox.innerHTML = "Score: 0";
+    food = {x: 6, y: 7};
+    gameOverDiv.style.display = 'none';
+}
