@@ -40,7 +40,7 @@ function isCollide(snake) {
     return false;
 }
 
-function gameEngine(){  // ADD THIS LINE - you were missing it!
+function gameEngine(){  
     // collision check
     if(isCollide(snakeArr)){
         inputDir = {x: 0, y: 0}; 
