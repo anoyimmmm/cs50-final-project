@@ -26,4 +26,9 @@ This file contains the background i have used for the game. The theme was recomm
 # main logic
 Initially i started the code with a input direction declaration as (0,0) cordinates which basically means that the snake is not moving at the start of the game. Then it is followed by linking other documents and declaring the variable and constants used throughtout the code. I decided to put the snake in the {x: 13, y: 15} space as it looks more in the middle and easily visible. Similarly, i put the food {x: 6, y: 7} space to make it distant from the snake head.I seperated the snake head and body function to apply my logic for eating food and increasing the body each time the snake eats the food. Also, i used window.requestAnimationFrame() function instead of looping the game because it makes the browser run at optimal refresh rate and browser pauses the callback when the tab is not visible making it more efficient.The game engine function is the main part of the code as it is responsible for most significant stuffs dictating the game such as: movement of the snake, collision check, randomly sprawning the food when snake eats the food and also renders the snake and food most importantly. I have also used window event listener function to detect the keystroke and change the direction of the snake head followed by snake body. Whenever the current co-ordinates of the food matched that of the head the snake, program is so implemented that the snake body in increased by one unit and the food is moved to another location. When the head of the snake bumps in the walls or its own body then the gameover pop-up is displayed with the option of restart.
 
+# credit
+1. Google gemini for theme idea and background image
+2. Google search for perfect CSS visuals
+3. CS50x team for providing with great free course 
+
 
